@@ -1,101 +1,182 @@
-# 🚀 StudyMate AI
+📚 StudyMate AI
 
-An AI-powered student study assistant built with **React (Vite)**, **Node/Express**, and the **Gemini API**.
+An AI-powered student study assistant built with React (Vite), Node.js/Express, and the Google Gemini API.
 
-Gemini is the core engine of every feature below — not just a chatbot bolted on.
+Gemini is the core AI engine behind the application's study features—not just a chatbot or coding assistant.
 
-## ✨ Features
+✨ Features
 
-1. **Ask AI** — Ask any topic/question, Gemini explains it simply in Hinglish/English.
-2. **Summarize Notes** — Paste or upload notes, Gemini generates short exam-friendly notes.
-3. **Quiz Generator** — Enter a topic, Gemini generates MCQs.
-4. **Quiz Evaluation** — Submit answers, get score + AI-generated feedback + explanations.
-5. **Study Plan** — Enter exam date + subjects, Gemini builds a personalized day-wise schedule.
-6. **Doubt Solver** — A dedicated conversational chat with Gemini for follow-up doubts.
+1. 🤖 Ask AI
 
-## 🧱 Tech Stack
+Ask questions on any topic and get clear explanations in simple language.
 
-- **Frontend:** React + Vite
-- **Backend:** Node.js + Express
-- **AI:** Google Gemini API (`gemini-3.8-flash`)
+2. 📝 Summarize Notes
 
-## 📁 Project Structure
+Paste study material and generate concise, exam-friendly notes using Gemini.
 
-```
-studymate-ai/
+3. 🧠 Quiz Generator
+
+Enter a topic and generate AI-powered multiple-choice questions for practice.
+
+4. ✅ Quiz Evaluation
+
+Submit quiz answers and receive AI-generated feedback and explanations.
+
+5. 📅 Study Plan
+
+Enter your exam date, subjects, and available study hours to generate a personalized study schedule.
+
+6. 💡 Doubt Solver
+
+Get conversational explanations for difficult concepts and follow-up questions.
+
+🧩 Gemini API Integration
+
+The Google Gemini API is directly integrated into the backend and powers the core AI functionality.
+
+Gemini is used for:
+
+- Answer generation
+- Note summarization
+- Quiz generation
+- Quiz evaluation
+- Personalized study-plan generation
+- Doubt solving and explanations
+
+The frontend communicates with the Node.js/Express backend, and the backend securely handles Gemini API requests.
+
+🛠️ Tech Stack
+
+Frontend
+
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+
+Backend
+
+- Node.js
+- Express.js
+- REST API
+
+AI
+
+- Google Gemini API
+
+📁 Project Structure
+
+StudyMate-AI/
+│
 ├── backend/
 │   ├── routes/
 │   │   ├── ask.js
-│   │   ├── summarize.js
+│   │   ├── chat.js
 │   │   ├── quiz.js
-│   │   ├── evaluate.js
 │   │   ├── studyplan.js
-│   │   └── chat.js
+│   │   └── summarize.js
+│   │
 │   ├── utils/
 │   │   └── gemini.js
-│   ├── server.js
+│   │
+│   ├── .env
 │   ├── package.json
-│   └── .env.example
+│   └── server.js
+│
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── AskAI.jsx
-│   │   │   ├── SummarizeNotes.jsx
+│   │   │   ├── DoubtSolver.jsx
 │   │   │   ├── QuizGenerator.jsx
 │   │   │   ├── StudyPlan.jsx
-│   │   │   └── DoubtSolver.jsx
-│   │   ├── App.jsx
-│   │   ├── main.jsx
+│   │   │   └── SummarizeNotes.jsx
+│   │   │
 │   │   ├── api.js
-│   │   └── index.css
-│   ├── index.html
-│   ├── vite.config.js
-│   └── package.json
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
 └── README.md
-```
 
-## ⚙️ Setup Instructions
+🚀 Local Setup
 
-### 1. Get a Gemini API key
-Go to [Google AI Studio](https://aistudio.google.com/app/apikey) and generate a free API key.
+1. Clone the repository
 
-### 2. Backend setup
-```bash
+git clone https://github.com/Kumkum2301/StudyMate-AI.git
+cd StudyMate-AI
+
+2. Backend setup
+
 cd backend
 npm install
-cp .env.example .env
-# open .env and paste your GEMINI_API_KEY
-npm run dev
-```
-Backend runs on `http://localhost:5000`.
 
-### 3. Frontend setup
-Open a new terminal:
-```bash
+Create a ".env" file inside the "backend" folder:
+
+GEMINI_API_KEY=your_gemini_api_key
+PORT=5000
+
+Start the backend:
+
+npm run dev
+
+Backend runs on:
+
+http://localhost:5000
+
+3. Frontend setup
+
+Open another terminal:
+
 cd frontend
 npm install
 npm run dev
-```
-Frontend runs on `http://localhost:5173` and proxies `/api` requests to the backend.
 
-### 4. Open the app
-Visit `http://localhost:5173` in your browser. 🎉
+Open the local URL shown by Vite, usually:
 
-## 🔐 Environment Variables
+http://localhost:5173
 
-`backend/.env` (create from `.env.example`):
-```
-GEMINI_API_KEY=your_gemini_api_key_here
-PORT=5000
-```
+🔐 Environment Variables
 
-**Never commit your `.env` file** — it's already covered by `.gitignore`.
+Never commit your real API key to GitHub.
 
-## 📦 Deployment Notes
+The ".env" file is excluded using ".gitignore".
 
-- Deploy `backend/` to any Node host (Render, Railway, etc.) and set `GEMINI_API_KEY` as an environment variable there.
-- Deploy `frontend/` (after `npm run build`) to Vercel/Netlify, and update the API base URL / proxy for production.
+Use:
 
-## 🙌 Credits
+GEMINI_API_KEY=your_gemini_api_key
 
-Built as a personal study-tools project, powered by the Gemini API.
+instead of publishing an actual API key.
+
+🎯 Hackathon Focus
+
+StudyMate AI is designed to make studying more interactive and personalized by combining multiple study workflows with a single Gemini-powered assistant.
+
+Instead of providing only general chat, the application provides dedicated tools for:
+
+Understanding → Summarizing → Practicing → Planning → Doubt Solving
+
+🤖 AI Assistance Disclosure
+
+AI-assisted development tools were used during development for coding assistance, debugging, troubleshooting, documentation, and implementation guidance.
+
+The project's functionality, integration, testing, and final implementation were reviewed and assembled as part of the hackathon project development.
+
+🏆 Hackathon
+
+Built for MLH Campulsy Hack Days with Gemini API integration as a core requirement.
+
+👩‍💻 Author
+
+Kumkum Gupta
+
+GitHub: https://github.com/Kumkum2301
+
+---
+
+⭐ If you find StudyMate AI useful, consider giving the repository a star!
